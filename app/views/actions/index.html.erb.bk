@@ -1,0 +1,31 @@
+<%= @client.name %>さんに対する進捗<hr>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>内容</th>
+    <th>状態</th>
+    <th>期待値</th>
+    <th>編集リンク</th>
+    <th>削除リンク</th>
+    <th>作成日</th>
+    <th>更新日</th>
+  <tr>
+  <% @actions.each do |action| %>
+    <tr>
+      <td><%= action.id %></td>
+      <td><%= action.content %></td>
+      <td><%= action.state.empty? ? "なし" : action.state %></td>
+      <td><%= action.expectation.empty? ? "なし" : action.expectation %></td>
+      <td><%= link_to "Edit", edit_client_action_path(@client, action) %></td>
+      <td><%= link_to "Destroy", client_action_path(@client, action), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= action.created_at.strftime('%Y-%m-%d') %></td>
+      <td><%= action.updated_at.strftime('%Y-%m-%d') %></td>
+    </tr>
+  <% end %>
+</table>
+<hr>
+<br>
+<%= link_to "進捗を追加する", new_client_action_path(@client) %> 
+<br>
+<%= link_to "クラアントのリストを表示する", clients_path %> 

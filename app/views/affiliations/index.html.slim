@@ -1,0 +1,39 @@
+= render "users/header"
+br
+
+center style="padding:5em;border: 1px dotted #333333;"
+  - if !@affiliations.empty?
+    table frame="box" rules="all"
+      thead
+        tr
+          th ID
+          th 名前
+          th 住所
+          th 電話
+          th メール
+          th メモ
+          th 作成日
+          th 更新日
+          th 変更
+          th 削除
+      tbody
+          - @affiliations.each do |aff|
+            / = aff.inspect
+            tr
+              td = aff.id
+              td = link_to aff.name, client_affiliation_path(@client, aff)
+              td = aff.address
+              td = aff.call
+              td = aff.email
+              td = aff.memo
+              td = aff.created_at
+              td = aff.updated_at
+              td =link_to "Edit", edit_client_affiliation_path(@client, aff)
+              td =link_to "Delete", client_affiliation_path(@client, aff), method: :delete, data: { confirm: 'Are you sure?' }
+  - else
+    p 所属先はありません
+  
+  br
+  div class="btn btn-warning" = link_to "新しい所属先を作成", new_client_affiliation_path
+  / br
+  / div class="btn btn-warning" = link_to "クライアント一覧", root_path

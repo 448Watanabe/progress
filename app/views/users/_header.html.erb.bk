@@ -1,0 +1,10 @@
+管理のヘッダー<br>
+<% if user_signed_in? %>
+  <%= "管理者の名前は#{current_user.name}です"%><br>
+  <%= current_user.name + " is logged in" %><br>
+  <%= link_to "ログアウト", destroy_user_session_path,  method: :delete,data: {confirm: 'Are you sure?' } %>
+<% end %>
+<% if !user_signed_in?%>
+  <% link_to "log in", login_path %>
+<% end %> 
+<hr>

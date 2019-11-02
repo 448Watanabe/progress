@@ -1,0 +1,41 @@
+= render "users/header"
+br
+
+div.container-fluid
+  div class="row"
+    div class="col-md-9"
+      center
+        center
+          = form_tag(root_path, method: "get")
+            input type="text" name="keyword"
+            button type = "submit" 検索
+
+            
+        p クライアントをクリックで過去のアクションを表示
+        table rules="all" frame="box"
+          thead
+            tr
+              th ID
+              th Name
+              th
+              th
+              th
+        
+          tbody
+            - @clients.each do |client|
+              tr
+                td = client.id
+                td = link_to client.name, client_actions_path(client)
+                td = link_to 'Show', client_path(client)
+                td = link_to 'Edit', edit_client_path(client)
+                td = link_to 'Destroy', client_path(client), method: :delete, data: { confirm: 'Are you sure?' }
+        
+        div.container
+          = paginate(@clients)
+
+    div class="col-md-3" 
+      = link_to "新しいクライアントを作成", new_client_path
+      / = link_to "新しい所属を作成", client_affiliations_path
+
+/ トータルが12じゃないと改行される
+hr

@@ -1,0 +1,13 @@
+
+div class="row" style="border-color:#6495ed ; border-style:groove; border-width:5px ;"
+  div class="col-md-9"
+    =link_to image_tag('logo_001.jpeg', :size =>'40x40'), root_path
+  div class="col-md-3"
+    div align="right" style="left:10px;"
+      -if user_signed_in?
+        = "管理者の名前は#{current_user.name}です"
+        br
+        = link_to "ログアウト", destroy_user_session_path,  method: :delete,data: {confirm: 'Are you sure?' }
+      -if !user_signed_in?
+        = link_to "log in", login_path 
+hr

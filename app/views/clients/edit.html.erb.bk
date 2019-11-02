@@ -1,0 +1,11 @@
+<%= form_with model: @client do |form| %>
+  
+  <%= form.label :name %>:
+  <%= form.text_field :name %><br>
+  <%= form.label :email %>:
+  <%= form.text_field :email %><br>
+  <%= form.label :position %>:
+  <%= form.text_field :position %><br>
+  <%= form.submit %>
+
+<% end %>

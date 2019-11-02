@@ -1,0 +1,30 @@
+p 「#{@client.name}」さんに対する進捗
+hr
+
+center
+  table frame="box" rules="all"
+    tr
+      th ID
+      th 内容
+      th 状態
+      th 期待値
+      th 編集リンク
+      th 削除リンク
+      th 作成日
+      th 更新日
+    - @actions.each do |action|
+      tr
+        td = action.id
+        td = action.content
+        td = action.state.empty? ? "なし" : action.state
+        td = action.expectation.empty? ? "なし" : action.expectation
+        td = link_to "Edit", edit_client_action_path(@client, action)
+        td = link_to "Destroy", client_action_path(@client, action), method: :delete, data: { confirm: 'Are you sure?' }
+        td = action.created_at.strftime('%Y-%m-%d')
+        td = action.updated_at.strftime('%Y-%m-%d')
+  hr
+  br
+  = link_to "進捗を追加する", new_client_action_path(@client)
+  br
+
+  = link_to "クラアントのリストを表示する", root_path 

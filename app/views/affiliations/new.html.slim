@@ -1,0 +1,28 @@
+= flash[:error]
+br
+= @affiliation.errors.inspect unless @affiliation.errors.nil?
+br
+
+/ = form_for :affiliations, url: client_affiliations_path(@client.id), method: :post do |form|
+= form_for [@client, @affiliation], method: :post do |form|
+    = form.label :name
+    br
+    = form.text_field :name
+    br
+    = form.label :address
+    br
+    = form.text_field :address
+    br
+    = form.label :call
+    br
+    = form.text_field :call
+    br
+    = form.label :email
+    br
+    = form.text_field :email
+    br
+    = form.label :memo
+    br
+    = form.text_field :memo
+    br
+    = form.submit "所属を作成する"

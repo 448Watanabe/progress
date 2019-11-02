@@ -1,0 +1,20 @@
+
+center
+  table frame= "box" rules="all"
+      thead
+          tr
+              th ID
+              th 名前
+              th ポジション
+              th メールアドレス
+      tbody
+          tr
+              td = @client.id
+              td = @client.name
+              td = @client.position
+              td = @client.email
+  
+hr
+= link_to "所属を表示", client_affiliations_path(@client)
+br
+= link_to "クライアントのリストを表示", clients_path
