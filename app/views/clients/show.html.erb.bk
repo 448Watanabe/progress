@@ -1,0 +1,4 @@
+
+<%= @client.name %> <br>
+<%= @client.position %><br>
+<%= link_to "indexへ", clients_path %>

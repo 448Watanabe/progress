@@ -1,0 +1,16 @@
+=flash[:error]
+
+/ = form_for :actions, url: "/clients/#{@client.id}/actions/create", method: :post do |form|
+= form_for :actions, url: client_actions_path(@client.id), method: :post do |form|
+    = form.label :content 
+    = form.text_field :content
+    brbr
+    = form.label :state
+
+    input type="text" name="actions[state]" id="action_state"
+    brbr
+    = form.label :expectation
+    input type="text" name="actions[expectation]" id="action_expectation"
+    brbr
+    = form.submit "進捗を作成"
+

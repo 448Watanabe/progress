@@ -1,0 +1,12 @@
+<%= flash.inspect %>
+<%= @client.inspect %>
+<hr>
+<%= form_with model: [@client, @action], url: client_actions_path, method: :post do |form| %>
+  <%= form.label :content %>
+  <input type="text" name="actions[content]" id="action_content" ><br>
+  <%= form.label :state %>
+  <input type="text" name="actions[state]" id="action_state" ><br>
+  <%= form.label :expectation %>
+  <input type="text" name="actions[expectation]" id="action_expectation" ><br>
+  <%= form.submit%>
+<% end %>

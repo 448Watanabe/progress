@@ -1,0 +1,19 @@
+=flash[:error] unless flash.nil?
+br
+center
+  = form_with model: @client do |form|
+    
+    = form.label :name
+    br
+    = form.text_field :name
+    br
+    = form.label :email
+    br
+    = form.text_field :email
+    br
+    = form.label :position 
+    br
+    = form.text_field :position
+    br
+    = form.submit
+    br
