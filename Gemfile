@@ -41,7 +41,7 @@ gem 'rb-readline'
 
 gem 'slim-rails'
 # インストール資料 https://qiita.com/NaokiIshimura/items/c8db09daefff5c11dadf
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'kaminari'
